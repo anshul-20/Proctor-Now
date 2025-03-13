@@ -1,0 +1,48 @@
+<div class="is-flex" style="justify-content:space-between;margin-bottom:16px;">
+
+  <h1 class="title is-1">Users</h1>
+  <a href="/users/add" class="button is-primary is-medium">
+    <i class="fa-solid fa-plus"></i>
+    Add User
+  </a>
+</div>
+
+{{#if users.length}}
+
+  <table class="table" style="width:100%;">
+    <thead>
+      <tr>
+        <th><abbr title="Name">Name</abbr></th>
+        <th><abbr title="Email">Email</abbr></th>
+        <th><abbr title="Role">Role</abbr></th>
+        <th><abbr title="Semester">Semester</abbr></th>
+        <th><abbr title="Edit">Edit</abbr></th>
+        <th><abbr title="Report">Report</abbr></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each users}}
+        <tr>
+          <th>{{this.name}}</th>
+          <td>
+            {{this.email}}
+          </td>
+          <td>{{this.role}}</td>
+          <td>{{this.semester}}</td>
+          <td><a href="/users/edit/{{this.id}}">Edit</a></td>
+
+          {{#if this.isUserStudent}}
+            <td><a href="/users/report/user/{{this.id}}">View Reports</a></td>
+          {{else}}
+            <td>-</td>
+          {{/if}}
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+{{else}}
+  <h1>No user found</h1>
+
+{{/if}}

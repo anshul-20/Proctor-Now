@@ -1,0 +1,23 @@
+<h1 class="title is-2">All Reports</h1>
+
+{{#each reports}}
+  <div class="card quiz mb-5" id="{{this.id}}">
+    <header class="card-header">
+      <p class="card-header-title title is-3">
+        {{this.quiz.title}}
+      </p>
+    </header>
+    <div class="card-content">
+      <div class="content">
+        <p>{{this.score}}</p>
+        <p>Exam Starts On - {{this.startingDateInFormat}}</p>
+        <p>Exam Ends On - {{this.endingDateInFormat}}</p>
+        <p>Time Limit - {{this.timeLimitInFormat}}</p>
+      </div>
+    </div>
+    <footer class="card-footer">
+      <a href="/home/report/{{this.id}}" class="card-footer-item">View</a>
+    </footer>
+  </div>
+
+{{/each}}

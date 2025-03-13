@@ -1,0 +1,75 @@
+<h1 class="title is-1">Add User</h1>
+
+{{#if error}}
+  <div class="notification is-danger mt-1">
+    {{error}}
+  </div>
+{{/if}}
+
+<form action="/users/add" method="POST">
+
+  <div class="field is-vertical">
+    <label class="label" for="add-user__name-input">Name</label>
+    <div class="field-body">
+      <div class="field">
+        <p class="control">
+          <input
+            name="name"
+            class="input"
+            id="add-user__name-input"
+            type="text"
+            placeholder="Enter name"
+            required
+          />
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-vertical">
+    <label class="label" for="add-user__email-input">Email</label>
+    <div class="field-body">
+      <div class="field">
+        <p class="control">
+          <input
+            class="input"
+            id="add-user__email-input"
+            type="email"
+            placeholder="Enter email"
+            name="email"
+            required
+          />
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-vertical">
+    <label class="label" for="add-user__role-input">Role</label>
+    <div class="select" style="width:100%">
+      <select required name="role" style="width:100%">
+        <option value="STUDENT">Student</option>
+        <option value="TEACHER">Teacher</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="field is-vertical">
+    <label class="label" for="add-user__semester-input">Semester</label>
+    <div class="select" style="width:100%">
+      <select required name="semester" style="width:100%">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+    </div>
+  </div>
+
+  <button class="button is-primary is-block is-medium">
+    <i class="fa-solid fa-plus"></i>
+    Add User
+  </button>
+</form>

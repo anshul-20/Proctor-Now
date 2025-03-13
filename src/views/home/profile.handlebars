@@ -1,0 +1,79 @@
+<section class="container" style="height:100vh;">
+  <div
+    class="columns is-multiline"
+    style="justify-content:center;align-items:center;height:100%;"
+  >
+    <div class="column is-5 register">
+      <div class="columns">
+        <div class="column right has-text-centered">
+          <h1 class="title is-4 is-flex" style="justify-content:center;">
+            <div
+              style="width:100px;height:100px;border-radius:100%;"
+              class="has-background-black"
+            >
+
+              {{#if user.picture}}
+                <img
+                  src="{{user.picture}}"
+                  style="width:100%;border-radius:100%;"
+                />
+
+              {{else}}
+
+                <div
+                  style="width:100%;height:100%;border-radius:100%;display:flex;justify-content:center;align-items:center;"
+                  class="has-background-black"
+                >
+                  <i
+                    class="fa-solid fa-user"
+                    style="font-size:38px;color:white;"
+                  ></i>
+                </div>
+              {{/if}}
+
+            </div>
+          </h1>
+          <p class="description">{{user.name}}</p>
+          <p class="description">{{user.email}}</p>
+          <form>
+
+            <button
+              class="button is-block is-danger is-fullwidth is-medium profile__logout-button"
+            >
+              Logout</button>
+            <br />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  :root { --brandColor: hsl(166, 67%, 51%); --background: rgb(247, 247, 247);
+  --textDark: hsla(0, 0%, 0%, 0.66); --textLight: hsla(0, 0%, 0%, 0.33); } body
+  { background: var(--background); height: 100vh; color: var(--textDark); }
+  .field:not(:last-child) { margin-bottom: 1rem; } .register { background:
+  white; border-radius: 10px; } .left, .right { padding: 4.5rem; } .left {
+  border-right: 5px solid var(--background); } .left .title { font-weight: 800;
+  letter-spacing: -2px; } .left .colored { color: var(--brandColor);
+  font-weight: 500; margin-top: 1rem !important; letter-spacing: -1px; } .left p
+  { color: var(--textLight); font-size: 1.15rem; } .right .title { font-weight:
+  800; letter-spacing: -1px; } .right .description { margin-top: 1rem;
+  margin-bottom: 1rem !important; color: var(--textLight); font-size: 1.15rem; }
+  .right small { color: var(--textLight); } input { font-size: 1rem; }
+  input:focus { border-color: var(--brandColor) !important; box-shadow: 0 0 0
+  1px var(--brandColor) !important; } .fab, .fas { color: var(--textLight);
+  margin-right: 1rem; } .icon { cursor: pointer; } .icon:hover i {
+  color:hsl(166, 67%, 51%); }
+
+</style>
+
+<script>
+  const logoutBtn = document.querySelector(".profile__logout-button");
+  logoutBtn.addEventListener("click",(e) => { e.preventDefault(); swal({ title:
+  `Are you sure?`, icon:`warning`, buttons: true, dangerMode: true,
+  }).then(willDelete => { if(!willDelete) { return; }
+  fetch(`/auth/logout`).then(response => { if(response) {
+  window.location.href= response.url; } } ); }) })
+</script>

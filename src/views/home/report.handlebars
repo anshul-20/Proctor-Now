@@ -1,0 +1,38 @@
+<h2 class="title is-2 has-text-centered">{{report.quiz.title}}</h2>
+
+<div style="margin:20px 0;display:flex;justify-content:center;">
+  <span
+    class="tag is-primary has-text-weight-bold"
+  >{{report.quiz.subject}}</span>
+</div>
+
+<div class="mb-6">
+  <h2 class="title is-4 has-text-centered">Score: {{report.score}}</h2>
+  <p class="has-text-centered">{{testSubmittedOn}}</p>
+</div>
+
+<div class="box report__performance__container">
+</div>
+
+<div class="quiz__question-container">
+
+</div>
+
+<script>
+  var _reportData =
+  {{{json report}}}
+</script>
+<script src="/scripts/report/showReport.js"></script>
+
+<style>
+  .quiz__question-container__question__container{ box-shadow: 0 1px 10px 1px
+  rgba(52, 40, 104, 0.08); padding:18px; border-radius:4px; font-size: 32px;
+  margin-bottom:16px; } .quiz__question-container__option__container{
+  display:flex; flex-direction:column; align-items: center; }
+  .quiz__question-container__option{ list-style:none;width:95%;
+  background-color: white; cursor: pointer; padding:16px; list-style-position:
+  inside; border-radius: 4px; box-shadow: 0 1px 10px 1px rgba(52, 40, 104,
+  0.08); color:black; border:1px solid white !important; margin-bottom:18px; }
+  .quiz{ position:relative; height:100vh; } .quiz__camera__output-video{
+  position:absolute; bottom:20px; right:20px; border-radius: 8px; }
+</style>

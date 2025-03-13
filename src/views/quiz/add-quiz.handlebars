@@ -1,0 +1,225 @@
+{{#if error}}
+  <div class="notification is-danger mt-1">
+    {{error}}
+  </div>
+{{/if}}
+
+<form class="add-quiz">
+
+  <h3 class="title is-2">Exam Details</h3>
+
+  <div class="columns">
+    <div class="column">
+      <div class="field is-vertical">
+        <label class="label" for="add-quiz__title-input">Title</label>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input
+                name="title"
+                class="input add-quiz__title"
+                id="add-quiz__title-input"
+                type="text"
+                placeholder="Enter title"
+                required
+              />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+
+      <div class="field is-vertical">
+        <label
+          class="label"
+          for="add-quiz__description-input"
+        >Description</label>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input
+                name="description"
+                class="input add-quiz__description"
+                id="add-quiz__description-input"
+                type="text"
+                placeholder="Enter description"
+                required
+              />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="column">
+      <div class="field is-vertical">
+        <label class="label" for="add-quiz__subject-input">Subject</label>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input
+                name="subject"
+                class="input add-quiz__subject"
+                id="add-quiz__subject-input"
+                type="text"
+                placeholder="Enter subject"
+                required
+              />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="field is-vertical">
+        <label class="label" for="add-quiz__time-limit-input">Time Limit</label>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input
+                name="timeLimit"
+                class="input add-quiz__time-limit"
+                id="add-quiz__time-limit-input"
+                type="number"
+                placeholder="Enter time limit in minutes"
+                required
+              />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="column">
+      <div class="field is-vertical">
+        <label class="label" for="add-quiz__starting-date-input">Starting Date</label>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input
+                name="startingDate"
+                class="input add-quiz__starting-date"
+                id="add-quiz__starting-date-input"
+                type="datetime-local"
+                required
+              />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="field is-vertical">
+        <label class="label" for="add-quiz__ending-date-input">Ending Date</label>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input
+                name="startingDate"
+                class="input add-quiz__ending-date"
+                id="add-quiz__ending-date-input"
+                type="datetime-local"
+                required
+              />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="column">
+      <div class="field is-vertical">
+        <label class="label" for="add-quiz__marks-per-question-input">Marks Per
+          Question</label>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input
+                name="marksPerQuestion"
+                class="input add-quiz__marks-per-question"
+                id="add-quiz__marks-per-question-input"
+                type="number"
+                placeholder="Enter marks per question"
+                required
+              />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="field is-vertical">
+        <label
+          class="label"
+          for="add-quiz__negative-marks-per-question-input"
+        >Negative Marks Per Question</label>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input
+                name="negativeMarksPerQuestion"
+                class="input add-quiz__negative-marks-per-question"
+                id="add-quiz__negative-marks-per-question-input"
+                type="number"
+                placeholder="Enter negative marks per question"
+                required
+              />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-vertical">
+    <label class="label" for="add-quiz__semester-input">Semester</label>
+    <div class="select" style="width:100%">
+      <select
+        required
+        name="semester"
+        class="add-quiz__semester"
+        style="width:100%"
+      >
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+    </div>
+  </div>
+
+  <hr />
+
+  <h3 class="title is-2">Questions</h3>
+
+  <div class="add-quiz__questions quiz-questions">
+  </div>
+
+  <hr />
+
+  <div class="buttons">
+
+    <button class="question__add-button button is-primary is-block is-medium">
+      <i class="fa-solid fa-plus"></i>
+      Add question
+    </button>
+    <button type="submit" class="button is-primary is-block is-medium">Create
+      quiz</button>
+  </div>
+
+</form>
+
+<script src="/scripts/quiz/addquiz.js"></script>

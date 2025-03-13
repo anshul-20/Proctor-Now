@@ -1,0 +1,83 @@
+{{error}}
+
+<a class="edit-quiz__delete" href="/quiz/delete/{{id}}">Delete Quiz </a>
+
+<form class="edit-quiz" id="{{id}}">
+  <input
+    name="title"
+    type="text"
+    class="edit-quiz__title"
+    placeholder="Enter a title"
+    value="{{quiz.title}}"
+    required
+  />
+  <input
+    name="description"
+    class="edit-quiz__description"
+    type="text"
+    placeholder="Enter description"
+    value="{{quiz.description}}"
+    required
+  />
+  <input
+    type="text"
+    placeholder="Enter Subject"
+    class="edit-quiz__subject"
+    name="subject"
+    required
+    value="{{quiz.subject}}"
+  />
+  <input
+    type="datetime-local"
+    name="startingDate"
+    class="edit-quiz__starting-date"
+    required
+    value="{{startingDate}}"
+  />
+  <input
+    type="datetime-local"
+    name="endingDate"
+    class="edit-quiz__ending-date"
+    value="{{endingDate}}"
+    required
+  />
+  <input
+    placeholder="Enter time limit of examination in minutes"
+    type="number"
+    class="edit-quiz__time-limit"
+    value="{{quiz.timeLimit}}"
+  />
+
+  <input
+    type="number"
+    step="any"
+    placeholder="Marks per question"
+    class="edit-quiz__marks-per-question"
+    name="marksPerQuestion"
+    value="{{quiz.marksPerQuestion}}"
+    required
+  />
+  <input
+    type="number"
+    step="any"
+    placeholder="Negative marks per question"
+    name="negativeMarksPerQuestion"
+    class="edit-quiz__negative-marks-per-question"
+    value="{{quiz.negativeMarksPerQuestion}}"
+    required
+  />
+
+  <div class="edit-quiz__questions quiz-questions">
+
+  </div>
+  <button class="question__add-button" type="button">add question</button>
+  <button type="submit">create quiz</button>
+
+</form>
+
+<script>
+  var questions =
+  {{{json quiz.Questions}}}
+</script>
+
+<script src="/scripts/quiz/editquiz.js"></script>

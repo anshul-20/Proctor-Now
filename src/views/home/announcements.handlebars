@@ -1,0 +1,26 @@
+<div class="is-flex" style="justify-content:space-between;margin-bottom:16px;">
+  <h1 class="title is-1">Announcements</h1>
+</div>
+
+<div>
+  {{#each announcements}}
+    <div class="card" style="margin-bottom:12px;">
+      <div class="card-content">
+        <div class="content">
+          <p style="font-size:24px;">
+            {{this.description}}
+          </p>
+
+          <div style="display:flex;justify-content:space-between;">
+            <time
+              style="font-size:16px;font-weight:bold;"
+              datetime="2016-1-1"
+            >{{this.createdAt}}</time>
+            <span class="tag is-black is-size-6">{{this.user.name}}</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>

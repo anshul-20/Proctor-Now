@@ -1,0 +1,38 @@
+<h1>all quizes</h1>
+
+<div>
+  {{#each quizzes}}
+
+    <div class="card quiz mb-5" id="{{this.id}}">
+      <header class="card-header">
+        <p class="card-header-title title is-3">
+          {{this.title}}
+        </p>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          <p>{{this.description}}</p>
+          <p>Exam Starts On - {{this.startingDateInFormat}}</p>
+          <p>Exam Ends On - {{this.endingDateInFormat}}</p>
+          <p>Time Limit - {{this.timeLimitInFormat}}</p>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <a href="/quiz/view/{{this.id}}" class="card-footer-item">View</a>
+        <a href="/quiz/edit/{{this.id}}" class="card-footer-item">Edit</a>
+      </footer>
+    </div>
+
+  {{/each}}
+</div>
+
+<div class="card">
+  <div class="card-content">
+    <div class="content">
+      Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec
+      id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus
+      et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis
+      consectetur purus sit amet fermentum.
+    </div>
+  </div>
+</div>

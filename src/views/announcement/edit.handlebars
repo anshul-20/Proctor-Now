@@ -1,0 +1,77 @@
+<h1 class="title is-1">Edit Announcement</h1>
+
+{{#if error}}
+  <div class="notification is-danger mt-1">
+    {{error}}
+  </div>
+{{/if}}
+
+<form action="/announcement/edit" method="POST">
+
+  <input name="id" type="text" value="{{id}}" style="display:none;" required />
+
+  <div class="field is-vertical">
+    <label
+      class="label"
+      for="edit-announcement__announcement-input"
+    >Announcement</label>
+    <div class="field-body">
+      <div class="field">
+        <p class="control">
+          <textarea
+            name="description"
+            class="textarea"
+            placeholder="Enter Announcement"
+            id="edit-announcement__announcement-input"
+            rows="10"
+            required
+          >{{description}}</textarea>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-vertical">
+    <label
+      class="label"
+      for="edit-announcement__semester-input"
+    >Semester</label>
+    <div class="select" style="width:100%">
+      <select
+        required
+        name="semester"
+        class="add-announcement__semester-input"
+        style="width:100%"
+      >
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button
+      class="button is-primary is-block is-medium add-announcement__submit-button"
+    >
+      <i class="fa-solid fa-plus"></i>
+      Edit Announcement
+    </button>
+    <button
+      class="button is-danger is-block is-medium"
+      type="button"
+      onclick="handleDelete('{{id}}')"
+    >Delete</button>
+  </div>
+</form>
+
+<script>
+  function handleDelete(announcementId) { const willDelete = swal({ title: `Are
+  you sure?`, text: `Once deleted, you will not be able to recover this
+  announcement`, icon: `warning`, buttons: true, dangerMode: true,
+  }).then(willDelete => { if(!willDelete) { return; }
+  fetch(`http://localhost:3000/announcement/delete/${announcementId}`,{method:"DELETE"}).then(response => { if(response) { window.location.href= response.url } } ) }) }
+</script>

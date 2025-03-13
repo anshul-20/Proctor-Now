@@ -1,0 +1,57 @@
+<h1 class="title is-1">Add Announcement</h1>
+
+{{#if error}}
+  <div class="notification is-danger mt-1">
+    {{error}}
+  </div>
+{{/if}}
+
+<form action="/announcement/add" method="POST">
+
+  <div class="field is-vertical">
+    <label
+      class="label"
+      for="add-announcement__announcement-input"
+    >Announcement</label>
+    <div class="field-body">
+      <div class="field">
+        <p class="control">
+          <textarea
+            name="description"
+            class="textarea"
+            placeholder="Enter Announcement"
+            id="add-announcement__announcement-input"
+            rows="10"
+            required
+          ></textarea>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-vertical">
+    <label class="label" for="add-announcement__semester-input">Semester</label>
+    <div class="select" style="width:100%">
+      <select
+        required
+        name="semester"
+        class="add-announcement__semester-input"
+        style="width:100%"
+      >
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+    </div>
+  </div>
+
+  <button
+    class="button is-primary is-block is-medium add-announcement__submit-button"
+  >
+    <i class="fa-solid fa-plus"></i>
+    Add Announcement
+  </button>
+</form>
